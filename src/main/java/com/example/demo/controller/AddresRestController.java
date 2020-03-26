@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dao.AddressRepository;
-import com.example.demo.model.Address;
+import com.example.demo.model.Addres;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,23 +19,23 @@ public class AddresRestController {
 
 
     @GetMapping
-    public ResponseEntity<Iterable<Address>> getAddressList() {
+    public ResponseEntity<Iterable<Addres>> getAddressList() {
         return new ResponseEntity <>(addressRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Address> getAddress(@PathVariable String id) {
+    public ResponseEntity<Addres> getAddress(@PathVariable String id) {
         return new ResponseEntity <>(addressRepository.findById(id).get(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Address> createAddress(@RequestBody Address address){
-        Address saveAddress = addressRepository.save(address);
+    public ResponseEntity<Addres> createAddress(@RequestBody Addres addres){
+        Addres saveAddress = addressRepository.save(addres);
         return new ResponseEntity<>(saveAddress, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Address> getByFullAddress(@RequestParam(value = "country") String country,
+    public ResponseEntity<Addres> getByFullAddress(@RequestParam(value = "country") String country,
                                             @RequestParam(value = "city") String city,
                                             @RequestParam(value = "street") String street) {
         if (addressRepository.findAddressByFullName(country, city, street) != null) {

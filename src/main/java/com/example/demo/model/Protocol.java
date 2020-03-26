@@ -4,14 +4,15 @@ import com.example.demo.enums.Condition;
 import com.example.demo.enums.DocumentActivity;
 import com.example.demo.enums.DocumentCategory;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Data
 public class Protocol {
 
     @Id

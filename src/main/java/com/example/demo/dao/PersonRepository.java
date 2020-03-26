@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonRepository extends CrudRepository<Person, Long> {
 
-    @Query("select a from Protocol a where a.name = :name")
+    @Query("select a from Person a where a.name = :name")
     Person findByName(@Param("name") String name);
 
-    @Query("select b from Protocol b where b.surname = :surname")
+    @Query("select b from Person b where b.surname = :surname")
     Person findBySurname(@Param("surname") String surname);
 
-    @Query("select c from Protocol c where c.patroymic = :patroymic")
+    @Query("select c from Person c where c.patroymic = :patroymic")
     Person findByPatroymic(@Param("patroymic") String patroymic);
 
     @Query("select d from Person d where d.name = :name and d.surname = :surname and d.patroymic = :patroymic")

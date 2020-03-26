@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,9 +16,9 @@ public class Organization {
     private String name;
 
     @Column
-    private List<String> phone;
+    private String phone;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn
-    private List <Address> address;
+    private List <Addres> address;
 }

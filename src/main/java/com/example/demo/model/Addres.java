@@ -3,16 +3,15 @@ package com.example.demo.model;
 import lombok.Data;
 import lombok.Generated;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
+import javax.persistence.Id;
 
 @Entity
 @Data
-public class Address {
+public class Addres {
 
     @Id
     @GeneratedValue(generator = "document-uuid2")
